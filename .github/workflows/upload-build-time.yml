@@ -1,10 +1,6 @@
 # This file is for Testing purpose
 name: Upload build-time-file
-on:
-  pull_request:
-    types: [opened]
-    branches:
-      - master
+on: [push]
 
 jobs:
   upload_build_time:
