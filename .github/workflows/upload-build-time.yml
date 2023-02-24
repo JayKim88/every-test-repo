@@ -1,0 +1,27 @@
+# This file is for Testing purpose
+name: Upload build-time-file
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - master
+
+jobs:
+  upload_build_time:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          workload_identity_provider: "projects/275845561201/locations/global/workloadIdentityPools/test-everything-pool"
+          service_account: "jay-test@test-everything-project-378806.iam.gserviceaccount.com"
+
+      - id: "upload-file"
+        uses: "google-github-actions/upload-cloud-storage@v1"
+        with:
+          path: "/build-time.json"
+          destination: "client-version-update"

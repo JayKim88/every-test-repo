@@ -1,0 +1,8 @@
+{
+  "name": "every-test-repo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JayKim88/every-test-repo.git",
+  "author": "Jay Kim <mearak43@gmail.com>",
+  "license": "MIT"
+}
