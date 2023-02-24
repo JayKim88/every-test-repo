@@ -5,7 +5,9 @@ on:
     types: [opened]
     branches:
       - master
-
+defaults:
+  run:
+    working-directory: every-test-repo
 jobs:
   upload_build_time:
     runs-on: ubuntu-latest
@@ -23,5 +25,5 @@ jobs:
       - id: "upload-file"
         uses: "google-github-actions/upload-cloud-storage@v1"
         with:
-          path: "../../build-time.json"
+          path: 'every-test-repo/build-time.json',
           destination: "client-version-update-jay"
